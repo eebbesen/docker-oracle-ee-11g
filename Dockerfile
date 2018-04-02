@@ -1,7 +1,7 @@
-FROM sath89/oracle-ee-11g-base:latest
+FROM docker.artifactory.granicuslabs.com/oracle-11g-ee-granicus-base:latest
 
-ENV DBCA_TOTAL_MEMORY 4096
-ENV WEB_CONSOLE true
+ENV DBCA_TOTAL_MEMORY 2048
+ENV WEB_CONSOLE false
 
 ENV ORACLE_SID=EE
 ENV ORACLE_HOME=/u01/app/oracle/product/11.2.0/EE
