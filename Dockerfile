@@ -1,4 +1,4 @@
-FROM docker.artifactory.granicuslabs.com/oracle-11g-ee-granicus-base:latest
+FROM docker.artifactory.granicuslabs.com/oracledev-ee-11g-granicus-base:latest
 
 ENV DBCA_TOTAL_MEMORY 2048
 ENV WEB_CONSOLE false

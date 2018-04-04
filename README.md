@@ -6,15 +6,19 @@ Oracle Enterprise Edition 11g Release 2 on Oracle Linux
 This **Dockerfile** is based on [trusted build](https://registry.hub.docker.com/u/sath89/oracle-ee-11g/) of [Docker Registry](https://registry.hub.docker.com/). It has some Oracle components removed in an effort to shrink the size.
 
 ### Build
-#### Build the minimal base.
+#### Build the minimal base
+Download files from [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/112010-linx8664soft-100572.html). You'll need an Oracle login (free) and you'll need to accept the OTN License Agreement.
+*	linux.x64_11gR2_database_1of2.zip
+*	linux.x64_11gR2_database_2of2.zip
+
 Start a web server to serve install files
 
-    ruby -run -e httpd ./oracle-11g-ee-granicus-base/files -p 9090
+    ruby -run -e httpd /tmp/orad -p 9090
 Build the base image
 
-    docker build --build-arg hhost=10.10.3.211 --network="host" -t docker.artifactory.granicuslabs.com/oracledev-ee-11g-granicus-base ./oracle-11g-ee-granicus-base/
+    docker build --add-host od.com:10.10.3.211 -t docker.artifactory.granicuslabs.com/oracledev-ee-11g-granicus-base ./oracle-11g-ee-granicus-base/
 
-#### Build ?????
+#### Build layer that completes installation
 
    docker build -t docker.artifactory.granicuslabs.com/oracledev-ee-11g-granicus .
 
